@@ -8,11 +8,15 @@ public class WeatherLambdaHandler implements RequestHandler<Map<String, Object>,
     @Override
     public String handleRequest(Map<String, Object> input, Context context) {
         String location = (String) input.getOrDefault("location", "London");
-        WeatherService service = new WeatherService();
+        WeatherService service = createWeatherService();
         try {
             return service.getWeather(location);
         } catch (Exception e) {
             return "Error fetching weather: " + e.getMessage();
         }
+    }
+
+    protected WeatherService createWeatherService() {
+        return new WeatherService();
     }
 }

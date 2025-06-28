@@ -31,6 +31,10 @@ dependencies {
     // AWS Lambda Java Core for RequestHandler and Context
     implementation("com.amazonaws:aws-lambda-java-core:1.2.3")
     // HTTP client (Java 11+ has built-in HttpClient, so no extra dependency needed)
+
+    // Mockito for mocking in tests
+    testImplementation("org.mockito:mockito-core:5.11.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.11.0")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
